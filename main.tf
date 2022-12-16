@@ -1,11 +1,34 @@
+module "table_label" {
+  source  = "cloudposse/label/null"
+  version = "0.25.0" # requires Terraform >= 0.13.0
+
+  for_each = var.tables
+
+  enabled             = module.this.enabled
+  namespace           = module.this.namespace
+  tenant              = module.this.tenant
+  environment         = module.this.environment
+  stage               = module.this.stage
+  name                = module.this.name
+  delimiter           = module.this.delimiter
+  tags                = module.this.tags
+  additional_tag_map  = module.this.additional_tag_map
+  label_order         = var.label_order
+  regex_replace_chars = module.this.regex_replace_chars
+  id_length_limit     = module.this.id_length_limit
+  label_key_case      = var.label_key_case
+  label_value_case    = var.label_value_case
+  descriptor_formats  = var.descriptor_formats
+  labels_as_tags      = var.labels_as_tags
+  attributes          = var.attributes_as_suffix ? concat([each.key], module.this.attributes) : concat(module.this.attributes, [each.key])
+}
+
 module "table" {
   source = "github.com/justtrackio/terraform-aws-dynamodb-table?ref=v1.0.1"
 
   for_each = var.tables
 
-  context    = module.this.context
-  attributes = module.this.attributes
-  name       = each.key
+  context = module.table_label[each.key].context
 
   autoscale_write_target         = each.value.autoscaler.write_target
   autoscale_read_target          = each.value.autoscaler.read_target
