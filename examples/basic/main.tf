@@ -1,7 +1,11 @@
 module "example" {
   source = "../.."
 
-  environment = "example"
+  namespace   = "ns"
+  environment = "env"
+  stage       = "st"
+  name        = "app"
+  attributes  = ["foo"]
 
   tables = {
     basic = {
