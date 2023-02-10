@@ -24,7 +24,7 @@ module "table_label" {
 }
 
 module "table" {
-  source = "github.com/justtrackio/terraform-aws-dynamodb-table?ref=v1.0.1"
+  source = "github.com/justtrackio/terraform-aws-dynamodb-table?ref=v1.0.3"
 
   for_each = var.tables
 
