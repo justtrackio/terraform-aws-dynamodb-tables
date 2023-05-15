@@ -1,6 +1,6 @@
 module "table_label" {
-  source  = "cloudposse/label/null"
-  version = "0.25.0" # requires Terraform >= 0.13.0
+  source  = "justtrackio/label/null"
+  version = "0.26.0" # requires Terraform >= 0.13.0
 
   for_each = var.tables
 
@@ -24,7 +24,8 @@ module "table_label" {
 }
 
 module "table" {
-  source = "github.com/justtrackio/terraform-aws-dynamodb-table?ref=v1.0.1"
+  source  = "justtrackio/dynamodb-table/aws"
+  version = "1.0.4"
 
   for_each = var.tables
 
