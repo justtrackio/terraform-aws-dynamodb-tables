@@ -16,7 +16,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_table"></a> [table](#module\_table) | github.com/justtrackio/terraform-aws-dynamodb-table | v1.0.1 |
+| <a name="module_table"></a> [table](#module\_table) | justtrackio/dynamodb-table/aws | 1.0.4 |
 | <a name="module_table_label"></a> [table\_label](#module\_table\_label) | justtrackio/label/null | 0.26.0 |
 | <a name="module_this"></a> [this](#module\_this) | justtrackio/label/null | 0.26.0 |
 
