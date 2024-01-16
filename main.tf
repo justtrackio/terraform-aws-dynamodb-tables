@@ -25,7 +25,7 @@ module "table_label" {
 
 module "table" {
   source  = "justtrackio/dynamodb-table/aws"
-  version = "1.0.4"
+  version = "2.0.2"
 
   for_each = var.tables
 
